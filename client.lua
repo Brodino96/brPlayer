@@ -10,7 +10,7 @@ end)
 
 
 -- Starts playing a sound on all clients who are online in the server.
-RegisterNetEvent("brodoPlayer:Sound:PlayOnAll")
+RegisterNetEvent("brodoPlayer:PlayOnAll")
 AddEventHandler("brodoPlayer:PlayOnAll", function(soundFile, soundVolume)
     SendNUIMessage({
         transactionType     = "playSound",
