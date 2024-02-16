@@ -10,10 +10,12 @@
                 // Check for playSound transaction
                 if (event.data.transactionType == "playSound") {
 				
+                  // Stops old audio
                   if (audioPlayer != null) {
                     audioPlayer.pause();
                   }
 
+                  // Generates new player
                   audioPlayer = new Howl({src: ["./sounds/" + event.data.transactionFile + ".ogg"], onend:function(){
                     $.post('https://brPlayer/audioStopped', JSON.stringify({}));
                   }});
@@ -22,6 +24,7 @@
 
                 }
 
+                // Changes volume
                 if (event.data.transactionType == "changeVolume") {
                   audioPlayer.volume(event.data.transactionVolume)
                 }

@@ -1,7 +1,7 @@
 local lookUptable = { [1] = 1.0, [2] = 0.9, [3] = 0.8, [4] = 0.7, [5] = 0.6, [6] = 0.5, [7] = 0.4, [8] = 0.3, [9] = 0.2, [10] = 0.1, [11] = 0.0 }
 local checkDistance = false
 
--- Starts playing a sound locally on a single client.
+-- Plays sound on the client
 RegisterNetEvent("brodoPlayer:playOnOne")
 AddEventHandler("brodoPlayer:playOnOne", function(soundFile, soundVolume)
     SendNUIMessage({
@@ -11,7 +11,7 @@ AddEventHandler("brodoPlayer:playOnOne", function(soundFile, soundVolume)
     })
 end)
 
--- Starts playing sound if client is close enough (coords and range)
+-- If in range starts to play sound
 RegisterNetEvent("brodoPlayer:playOnRange")
 AddEventHandler("brodoPlayer:playOnRange", function (soundFile, soundVolume, coords, range)
     if #(coords - GetEntityCoords(PlayerPedId())) <= range then
@@ -20,7 +20,7 @@ AddEventHandler("brodoPlayer:playOnRange", function (soundFile, soundVolume, coo
             transactionFile     = soundFile,
             transactionVolume   = soundVolume
         })
-        checkDistanceForAudio(coords, range)
+        checkDistanceForAudio(coords, range) -- changes the volume based on distance from start
     end
 end)
 
