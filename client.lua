@@ -2,8 +2,8 @@ local lookUptable = { [1] = 1.0, [2] = 0.9, [3] = 0.8, [4] = 0.7, [5] = 0.6, [6]
 local checkDistance = false
 
 -- Starts playing a sound locally on a single client.
-RegisterNetEvent("brodoPlayer:PlayOnOne")
-AddEventHandler("brodoPlayer:PlayOnOne", function(soundFile, soundVolume)
+RegisterNetEvent("brodoPlayer:playOnOne")
+AddEventHandler("brodoPlayer:playOnOne", function(soundFile, soundVolume)
     SendNUIMessage({
         transactionType     = "playSound",
         transactionFile     = soundFile,
